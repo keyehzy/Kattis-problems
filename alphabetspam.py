@@ -1,26 +1,27 @@
+import math
 def alphabetspam():
     spam  = input()
-    l = len(spam)
     
-    white = 0.0
-    lower = 0.0
-    upper = 0.0
-    symbols = 0.0
+    a, l = [0]*4, len(spam)
+
     for s in spam:
         if s == '_':
-            white += 1.0 / l
+            a[0] += 1.0 / l
         elif s.islower():
-            lower += 1.0 / l
+            a[1] += 1.0 / l
         elif s.isupper():
-            upper += 1.0 / l
+            a[2] += 1.0 / l
         elif not s.isalpha():
-            symbols += 1.0 / l
-    print(str('%.16f' % round(lower,17)))
-    prin(lower - (lower - round(lower,16)))
-    print(upper - (upper - round(upper,16)))
-    print(symbols - (symbols - round(symbols,16)))
+            a[3] += 1.0 / l
+    for n in a:
+        tol = math.pow(10,-15)
+        print(abs(1 - round(n,15)/n) < tol)
+        if abs(1 - round(n,15)/n) < tol:
+            print(format(n, '.15f'))
+        else:
+            print(format(n, '.16f'))
     return
-    
+
                 
 if __name__ == '__main__':
     alphabetspam()
