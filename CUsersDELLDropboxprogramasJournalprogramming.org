@@ -1,0 +1,4 @@
+***    Started racingalphabet.py
+***    Added modulo.py
+***    Added soylent.py
+***    Added janitortroubles.py

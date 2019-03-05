@@ -1,0 +1,7 @@
+def sevenwonders():
+    cards = input()
+    
+
+
+if __name__ == '__main__':
+    sevenwonders()
