@@ -18,4 +18,3 @@ def eligibility():
 
 if __name__ == '__main__':
     eligibility()
-

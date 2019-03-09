@@ -18,6 +18,18 @@ def sortofsorting():
             print()
     return
 
+def sortofsorting_1():
+    n = int(input())
+
+    for _ in range(n):
+        names = []
+        names.append(input())
+
+        bucket = [0]*26
+
+        for name in names:
+            bucket[ord(name[0].upper())-
+            
 
 if __name__ == '__main__':
-    sortofsorting()
+    sortofsorting_1()
