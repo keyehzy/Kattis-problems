@@ -1,9 +1,15 @@
+def _stdin():
+    from sys import stdin
+    for line in stdin:
+        yield line
 def licensetolaunch():
-    n = int(input())
+    from sys import stdout
+    line = _stdin()
+    n = int(next(line))
 
-    days = list(map(int, input().split()))
+    days = list(map(int, next(line).split()))
 
-    print(days.index(min(days)))
+    stdout.write(str(days.index(min(days))))
     return
 
 if __name__ == '__main__':

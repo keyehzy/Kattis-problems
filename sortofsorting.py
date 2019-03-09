@@ -1,21 +1,31 @@
+def _stdin():
+    from sys import stdin
+    for line in stdin:
+        yield line
+
 def sortofsorting_2():
-    n = int(input())
+    from sys import stdin, stdout
+    from operator import itemgetter
+
+    line = _stdin()
+    n = int(next(line))
+
     while True:
         a = []
         for _ in range(n):
-            name = input()
+            name = next(line)
             a.append(name)
 
-        list1 = sorted(a, key= operator.itemgetter(0,1))
-        for l in list1:
-            print(l)
+        a.sort(key=itemgetter(0,1))
+        for l in a:
+            stdout.write(str(l))
 
-        n = int(input())
+        n = int(next(line)) 
         if n == 0:
             break
         else:
-            print()
-            print()
+            stdout.write('\n')
+            stdout.write('\n')
     return
 
 if __name__ == '__main__':

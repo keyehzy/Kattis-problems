@@ -1,10 +1,15 @@
+def _stdin():
+    from sys import stdin
+    for line in stdin:
+        yield line
 def kornislav():
-    a, b, c, d = sorted(map(int, input().split()), reverse=True)
+    from sys import stdout
+    line = _stdin()
+    a, b, c, d = sorted(map(int, next(line).split()), reverse=True)
     # two biggest in horizontal
     # choose the bigger
     # choose the lesser from the remaining
-    print(min(a, b) * min(c, d))
-
+    stdout.write(str(int(min(a, b) * min(c, d))))
     return
 
 
