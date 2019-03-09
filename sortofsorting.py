@@ -1,4 +1,4 @@
-def sortofsorting():
+def sortofsorting_2():
     n = int(input())
     while True:
         a = []
@@ -6,9 +6,9 @@ def sortofsorting():
             name = input()
             a.append(name)
 
-        c = [x for _, x in sorted(zip([x[:2] for x in a], [x for x in range(n)]))]
-        for cc in c:
-            print(a[cc])
+        list1 = sorted(a, key= operator.itemgetter(0,1))
+        for l in list1:
+            print(l)
 
         n = int(input())
         if n == 0:
@@ -18,18 +18,6 @@ def sortofsorting():
             print()
     return
 
-def sortofsorting_1():
-    n = int(input())
-
-    for _ in range(n):
-        names = []
-        names.append(input())
-
-        bucket = [0]*26
-
-        for name in names:
-            bucket[ord(name[0].upper())-
-            
-
 if __name__ == '__main__':
-    sortofsorting_1()
+    sortofsorting_2()
+
