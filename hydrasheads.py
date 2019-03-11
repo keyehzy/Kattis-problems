@@ -1,25 +1,34 @@
+def _stdin():
+    from sys import stdin
+    for line in stdin:
+        yield line
+
+
+def solve(h, t, move=0):
+    from sys import stdout
+    if h > 0 or t > 0:
+        if t > 1:
+            solve(h+1, t-2, move+1)
+        elif h > 1:
+            solve(h-2, t, move+1)
+        else:
+            solve(h, t+1, move+1)
+    else:
+        stdout.write('%d\n' % move)
+        return
+
+
 def hydrashead():
+    line = _stdin()
+    # Initial commentary
+
     while True:
-        h, t = map(int, input().split())
-        if (h,t) == (0,0): break
-        moves = 0
-        while h>0 and t>0:
-            gh, gt = 0, 0
-            if t > 1:
-                t -= 2
-                gh += 1
-            elif h > 1:
-               h -= 2 
-            else:
-                t -= 1 
-                gt += 2
-            
-            h += gh
-            t += gt
-            moves += 1
-        print(moves)
+        h, t = map(int, next(line).split())
+        if (h, t) == (0, 0):
+            break
+        solve(h, t)
     return
 
-    
+
 if __name__ == '__main__':
     hydrashead()
