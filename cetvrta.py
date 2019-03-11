@@ -1,17 +1,32 @@
+def _stdin():
+    from sys import stdin
+    for line in stdin:
+        yield line
+
+
 def cetvrta():
-    x1, x2, x3 = list(map(int, input().split())), list(map(int, input().split())), list(map(int, input().split()))
+    from sys import stdout
+    line = _stdin()
+    # Initial commentary
+    eps = 1337
+    p1 = list(map(int, next(line).split()))
+    p2 = list(map(int, next(line).split()))
+    p3 = list(map(int, next(line).split()))
 
-    x = [x1, x2, x3]
+    p = [p1[0], p2[0], p3[0], p1[1]+eps, p2[1]+eps, p3[1]+eps]
 
-    for i in range(2):
-        y = list(map(int.__sub__, x[i+1], x[i]))
-        if y[0] != 0:
-            if y[0] > 0:
-                return [x[(i + 2 % 1) - 1][0] - y[1], x[(i + 2 % 1)-1][1] + y[0]]
-            else:
-                return [x[(i + 2 % 1) - 1][0] - y[0], x[(i + 2 % 1)-1][1] + y[1]]
+    q = set()
+    for pp in p:
+        if pp in q:
+            q.discard(pp)
+        else:
+            q.update({pp})
+
+    x, y = min(list(q)), max(list(q))-1337
+    stdout.write('%d %d' % (x, y))
+
     return
 
 
 if __name__ == '__main__':
-    print(' '.join(map(str, cetvrta())))
+    cetvrta()
