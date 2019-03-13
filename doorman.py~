@@ -3,21 +3,20 @@ def _stdin():
     for line in stdin:
         yield line
 
-def freefood():
+def doorman():
     from sys import stdout
+    import re
     line = _stdin()
     # Initial commentary
 
     n = int(next(line))
+    s = next(line).strip('\n')
 
-    days = set()
-    for _ in range(n):
-        i, f = map(int, next(line).split())
-        for j in range(i, f+1):
-            days.update({j})
-    stdout.write('%d\n' % len(days))
+    m = s.sub('MW', s)
+    print(m)
+
     return
 
 
 if __name__ == '__main__':
-    freefood()
+    doorman()

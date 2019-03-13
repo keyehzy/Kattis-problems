@@ -1,0 +1,33 @@
+def _stdin():
+    from sys import stdin
+    for line in stdin:
+        yield line
+
+def distance(a, b, x, y):
+    # distance(a,b) = distance(a-1, b-1) + cost(a,b)
+    # where cost(a,b) = 0 if x[a] == y[b] else 1
+    dist = []
+    if x == 0:
+        return y
+    if y == 0:
+        return x
+    cost = 0 if a[x] == b[x] else 1
+    dist.append(distance(a, b, x-1, y-1) + cost)
+
+    return dist
+    
+
+def bitsequalizer():
+    from sys import stdout
+    line = _stdin()
+    # Initial commentary
+
+    # ABC -> ADC
+    a, b = 'ABC', 'ADC'
+    distance(a, b, len(a)-1, len(b)-1)
+
+    return
+
+
+if __name__ == '__main__':
+    bitsequalizer()

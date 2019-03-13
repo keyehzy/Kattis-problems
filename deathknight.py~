@@ -3,21 +3,25 @@ def _stdin():
     for line in stdin:
         yield line
 
-def freefood():
+def deathknight():
     from sys import stdout
     line = _stdin()
     # Initial commentary
 
     n = int(next(line))
-
-    days = set()
+    c = 0
     for _ in range(n):
-        i, f = map(int, next(line).split())
-        for j in range(i, f+1):
-            days.update({j})
-    stdout.write('%d\n' % len(days))
+        s = next(line).strip('\n')
+        if s.find('DC') != -1:
+            continue
+        else:
+            c += 1
+    stdout.read(c + '\n')
+            
+        
+
     return
 
 
 if __name__ == '__main__':
-    freefood()
+    deathknight()

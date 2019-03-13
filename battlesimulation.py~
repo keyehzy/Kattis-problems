@@ -1,0 +1,35 @@
+def _stdin():
+    from sys import stdin
+    for line in stdin:
+        yield line
+
+def battlesimulation():
+    from sys import stdout
+    line = _stdin()
+    # Initial commentary
+
+    move = next(line).strip('\n')
+
+    c_move = {'R': 'S', 'B': 'K', 'L': 'H', 'RBL': 'C', 'BLR': 'C', 'LRB': 'C',
+              'BRL': 'C', 'LBR': 'C', 'RLB': 'C'}
+
+    result = []
+    peak = []
+    for j in range(len(move)):
+        if len(move)-1 > j > 0:
+            peak = [move[j-1], move[j], move[j+1]]
+            print(peak)
+            if ''.join(peak) in c_move.keys():
+                beg = result[:j-1]
+                end = result[j+1:]
+                result = beg + 'C' + end
+                continue
+        result.append(c_move[move[j]])
+
+    stdout.write(''.join(result))
+
+    return
+
+
+if __name__ == '__main__':
+    battlesimulation()

@@ -1,0 +1,21 @@
+def _stdin():
+    from sys import stdin
+    for line in stdin:
+        yield line
+
+def speedlimit():
+    from sys import stdout
+    line = _stdin()
+    # Initial commentary
+    try:
+        n = int(next(line))
+        for _ in range(n):
+            s, t = map(int, next(line).split())
+            stdout.write('%d miles' % (s * t)        
+    except EOFError:
+        return
+    return
+
+
+if __name__ == '__main__':
+    speedlimit()

@@ -3,17 +3,16 @@ def _stdin():
     for line in stdin:
         yield line
 
-def autori():
+
+def reversebinary():
     from sys import stdout
-    from re import compile, sub
     line = _stdin()
     # Initial commentary
 
-    regex = compile('[^A-Z]')
-    stdout.write('%s\n' % regex.sub('', next(line).strip('\n')))
-
+    n = str(bin(int(next(line))).strip('0b'))
+    stdout.write('%d' % (int(n[::-1], 2)))
     return
 
 
 if __name__ == '__main__':
-    autori()
+    reversebinary()

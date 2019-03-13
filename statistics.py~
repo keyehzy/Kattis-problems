@@ -1,0 +1,25 @@
+def _stdin():
+    from sys import stdin
+    for line in stdin:
+        yield line
+
+def statistics():
+    from sys import stdout
+    line = _stdin()
+    try:
+        idx = 1
+        while True:
+            n = list(map(int, next(line).split()))
+            min_n, max_n = min(n), max(n)
+            stdout.write('Case %d: %d %d %d' % (idx, min_n,
+                                                max_n, max_n - min_n))
+    except StopIteration:
+        pass
+
+    
+
+    return
+
+
+if __name__ == '__main__':
+    statistics()

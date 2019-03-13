@@ -3,21 +3,22 @@ def _stdin():
     for line in stdin:
         yield line
 
-def freefood():
+def akcija():
     from sys import stdout
     line = _stdin()
     # Initial commentary
 
     n = int(next(line))
+    _min = 100000
+    _sum = 0
+    for j in range(n):
+        if j < _min:
+            _min = j
+        _sum += j
+    stdout.write('%d' % (_sum - _min))
 
-    days = set()
-    for _ in range(n):
-        i, f = map(int, next(line).split())
-        for j in range(i, f+1):
-            days.update({j})
-    stdout.write('%d\n' % len(days))
     return
 
 
 if __name__ == '__main__':
-    freefood()
+    akcija()

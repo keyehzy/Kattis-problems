@@ -1,13 +1,22 @@
+def _stdin():
+    from sys import stdin
+    for line in stdin:
+        yield line
+
+
 def grassseed():
-    c = float(input())
-    l = int(input())
+    from sys import stdout
+    line = _stdin()
+    # Initial commentary
 
-    sum = 0
+    c, l = float(next(line)), int(next(line))
+
+    s = 0
     for _ in range(l):
-        x, y = map(float, input().split())
+        x, y = map(float, next(line).split())
+        s += x * y * c
+    stdout.write('%.7f' % s)
 
-        sum += x * y * c
-    print(format(round(sum, 7), '.7f'))
     return
 
 

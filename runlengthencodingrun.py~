@@ -1,0 +1,25 @@
+def _stdin():
+    from sys import stdin
+    for line in stdin:
+        yield line
+
+def runlengthencodingrun():
+    from sys import stdout
+    line = _stdin()
+    # Initial commentary
+
+    mode, inp = map(str, next(line).split())
+
+    if mode == 'E':
+        d = {}
+        for s in inp:
+            if s in d:
+                d[s] += 1
+            else:
+                d[s] == 0
+
+    return
+
+
+if __name__ == '__main__':
+    runlengthencodingrun()

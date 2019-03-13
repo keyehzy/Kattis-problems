@@ -1,0 +1,26 @@
+def _stdin():
+    from sys import stdin
+    for line in stdin:
+        yield line
+def check(A, l, r):
+    if l == r:
+        return 1
+    if A[l] == A[r]:
+        if l + 1 == r:
+            return 2
+        else:
+            return 2 + check(l + 1, r - 1)
+            
+
+def palindromesubstring():
+    from sys import stdout
+    line = _stdin()
+    # Initial commentary
+
+    
+
+    return
+
+
+if __name__ == '__main__':
+    palindromesubstring()
