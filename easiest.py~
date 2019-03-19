@@ -1,0 +1,22 @@
+from sys import stdin, stdout
+
+input = iter(stdin.read().splitlines()).__next__
+
+
+def write(x):
+    return stdout.write(x)
+
+
+def easiest():
+    # Initial commentary
+    
+    try:
+        while True:
+            
+    except EOFError:
+        pass
+    return
+
+
+if __name__ == '__main__':
+    easiest()

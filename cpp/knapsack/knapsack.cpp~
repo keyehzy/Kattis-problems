@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+typedef vector <int> vi;
+typedef vector <string> vs;
+typedef pair <int, int> pii;
+typedef vector<pii > vpii;
+
+#define pb push_back
+
+int n = 5;
+int vals[] = {1, 2, 3, 4, 5};
+int wt[] = {1, 1, 1, 2, 2};
+
+int f(int idx, int wleft){
+  if (idx > n){
+    return 0;
+  }
+  int ans = 1 << 20;
+  if (wt[idx] <= wleft){
+    ans = max( f(idx+1, wleft), vals[idx] + f(idx+1, wleft-wt[idx]));
+  }
+  return ans;
+    
+}
+  // for each item[idx] we can either take it or ignore it
+  // if we take it check if we have enough space
+  // f(idx, wleft) = max(f(idx + 1, wleft), vals[idx] + f(idx+1, wleft - wt[idx]));
+
+int main(){
+  cout << f(5, 0) << endl;
+  // maximum weight = W
+  // num of valuable = N
+}

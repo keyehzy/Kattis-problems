@@ -1,17 +1,17 @@
-def _stdin():
-    from sys import stdin
-    for line in stdin:
-        yield line
+from sys import stdin, stdout
+
+input = iter(stdin.read().splitlines()).__next__
+
+def write(x):
+    return stdout.write(x)
 
 def battlesimulation():
-    from sys import stdout
-    line = _stdin()
     # Initial commentary
 
-    move = next(line).strip('\n')
+    move = input()
 
-    c_move = {'R': 'S', 'B': 'K', 'L': 'H'}
-    combo = {'RBL', 'BLR', 'LRB', 'BRL', 'LBR', 'RLB'}
+    c_move = {'B': 'K', 'L': 'H', 'R': 'S'}
+    combo = {'BLR', 'BRL', 'LBR', 'LRB', 'RBL', 'RLB'}
     i = 0
     a = len(move)
     result = ''
@@ -26,7 +26,7 @@ def battlesimulation():
         else:
             result += c_move[move[i]]
             i += 1
-    stdout.write(''.join(result))
+    write('%s\n' % result)
     return
 
 

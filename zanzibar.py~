@@ -1,0 +1,23 @@
+from sys import stdin, stdout
+
+input = iter(stdin.read().splitlines()).__next__
+
+
+def write(x):
+    return stdout.write(x)
+
+
+def zanzibar():
+    # Initial commentary
+
+    n = int(input())
+
+    for _ in range(n):
+        a = list(map(int, input().split()))
+        s = sum(a) - len(a)
+
+    return
+
+
+if __name__ == '__main__':
+    zanzibar()

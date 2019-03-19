@@ -1,0 +1,34 @@
+from sys import stdin, stdout
+
+input = iter(stdin.read().splitlines()).__next__
+
+
+def write(x):
+    return stdout.write(x)
+
+
+def handingout():
+    # Initial commentary
+
+    n, e = map(int, input().split())
+    act = 0
+    exc = 0
+    for _ in range(e):
+        ss = input()
+        ee, p = ss[0], int(ss[1])
+        if ee == "enter":
+            if p + act <= n:
+                n += act
+            else:
+                exc += 1
+        if ee == "leave":
+            if act > 0:
+                act -= 1
+    print(exc)
+                
+
+    return
+
+
+if __name__ == '__main__':
+    handingout()

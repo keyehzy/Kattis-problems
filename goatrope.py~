@@ -1,0 +1,32 @@
+from sys import stdin, stdout
+
+input = iter(stdin.read().splitlines()).__next__
+
+
+def write(x):
+    return stdout.write(x)
+
+
+def goatrope():
+    # Initial commentary
+
+    x, y, x1, y1, x2, y2 = map(int, input().split())
+    
+    d = 0
+    if x < x1:
+        d = distance(x, y, 'v', x1)
+    elif x > x2:
+        d = distance(x, y, 'v', x2)
+    else:
+        if y < y1:
+            d = distance(x, y, 'h', y1)
+        elif y > y2:
+            d = distance(x, y, 'h' ,y2)
+    return 
+        
+
+    return
+
+
+if __name__ == '__main__':
+    goatrope()

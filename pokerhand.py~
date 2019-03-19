@@ -1,0 +1,19 @@
+from sys import stdin, stdout
+
+input = iter(stdin.read().splitlines()).__next__
+
+
+def write(x):
+    return stdout.write(x)
+
+
+def pokerhand():
+    # Initial commentary
+
+    h = list(input().split())
+
+    return
+
+
+if __name__ == '__main__':
+    pokerhand()
